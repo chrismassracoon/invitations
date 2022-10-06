@@ -14,7 +14,7 @@ export const Users = ({ count, invites, onClickInvite, items, isLoading, setSucc
 				<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 					<path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
 				</svg>
-				<input value={filter} onChange={(e) => editInput(e.target.value)} type="text" placeholder="Найти пользователя..." />
+				<input value={filter} onChange={(e) => editInput(e.target.value)} type="text" placeholder="Find users..." />
 			</div>
 			{isLoading ? (
 				<div className="skeleton-list">
@@ -27,7 +27,7 @@ export const Users = ({ count, invites, onClickInvite, items, isLoading, setSucc
 					{items.map(obj => filter === '' || !filter ? <User onClickInvite={onClickInvite} isInvited={invites.includes(obj.id)} {...obj}></User> : (obj.first_name.toLowerCase().includes(filter.toLowerCase()) || obj.last_name.toLowerCase().includes(filter.toLowerCase()) ? <User {...obj}></User> : null))}
 				</ul>
 			)}
-			{count > 0 && <button onClick={() => setSucces(true)} className="send-invite-btn">Отправить приглашение</button>}
+			{count > 0 && <button onClick={() => setSucces(true)} className="send-invite-btn">Send invitations</button>}
 		</>
 	);
 };
